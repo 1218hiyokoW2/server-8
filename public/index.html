@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>クライアントサイド</title>
+    <!-- prettier-ignore -->
+    <style>
+      h1 { font-size: 1.5em; }
+    </style>
+  </head>
+  <body>
+    <h1>ユーザー登録</h1>
+    <form id="signupForm">
+      <input type="text" id="signupUsername" placeholder="ユーザー名" required />
+      <input type="password" id="signupPassword" placeholder="パスワード" required />
+      <button type="submit">登録</button>
+    </form>
+
+    <h1>ログイン</h1>
+    <form id="loginForm">
+      <input type="text" id="loginUsername" placeholder="ユーザー名" required />
+      <input type="password" id="loginPassword" placeholder="パスワード" required />
+      <button type="submit">ログイン</button>
+    </form>
+
+    <h1>プロフィール取得 (要認証)</h1>
+    <button id="getProfileButton">プロフィール取得</button>
+
+    <h1>ログアウト</h1>
+    <button id="logoutButton" type="button">ログアウト</button>
+
+    <h1>レスポンス</h1>
+    <p id="result">ここに結果が表示されます...</p>
+  </body>
+  <script src="client.js"></script>
+</html>
