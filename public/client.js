@@ -70,6 +70,6 @@ logoutButton.addEventListener('click', async (e) => {
     result.textContent = 'ログアウトしました';
     loginUser.textContent = '';
   } else {
-    result.textContent = 'ログインしていません'
+    result.textContent = 'ログインしていません';
   }
 });
