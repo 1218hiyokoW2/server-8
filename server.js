@@ -45,7 +45,7 @@ app.post('/api/signup', async (c) => {
   await kv.set(['users', username], user);
 
   c.status(201); // 201 Created
-  return c.json({ message: 'ユーザー登録が成功しました' });
+  return c.json({ message: `ユーザー「${username}」を登録しました` });
 });
 
 /*** ログイン ***/
@@ -127,6 +127,23 @@ app.delete('/api', async (c) => {
   for await (const e of deleteList) atomic.delete(e.key);
   await atomic.commit();
   return c.body(null);
+});
+
+/* ログイン済みならリダイレクト */
+app.use('/signup.html', async (c, next) => {
+  const token = getCookie(c, COOKIE_NAME);
+  if (token) {
+    return c.redirect('/index.html'); // → アプリページへリダイレクト
+  }
+  await next();
+});
+
+app.use('/login.html', async (c, next) => {
+  const token = getCookie(c, COOKIE_NAME);
+  if (token) {
+    return c.redirect('/index.html'); // → アプリページへリダイレクト
+  }
+  await next();
 });
 
 /* ウェブコンテンツの配置 */
