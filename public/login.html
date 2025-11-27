@@ -28,25 +28,5 @@
 
     <a href="signup.html">ユーザー登録ページへ</a>
   </body>
-  <script>
-    const form = document.querySelector('form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
-
-      if (res.ok) {
-        location.href = 'index.html'; // →成功したらアプリページに飛ぶ
-      } else {
-        const data = await res.json();
-        document.querySelector('p').textContent = data.message;
-      }
-    });
-  </script>
+  <script src="login.js"></script>
 </html>

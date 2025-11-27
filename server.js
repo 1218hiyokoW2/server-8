@@ -5,7 +5,7 @@ import { serveStatic } from 'jsr:@hono/hono/deno';
 import { jwt, sign } from 'jsr:@hono/hono/jwt';
 
 // クッキー
-import { setCookie, deleteCookie } from 'jsr:@hono/hono/cookie';
+import { setCookie, deleteCookie, getCookie } from 'jsr:@hono/hono/cookie';
 
 // パスワードのハッシュ化（bcrypt）
 import { hash, verify } from 'jsr:@felix/bcrypt';
